@@ -35,5 +35,6 @@ export default {
 <style scoped>
 input {
   margin-top: 1rem;
+  width: 100%;
 }
 </style>
