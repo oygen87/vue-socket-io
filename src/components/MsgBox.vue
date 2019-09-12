@@ -50,5 +50,6 @@ h1 {
 .msgbox-container {
   height: 80vh;
   overflow-y: scroll;
+  text-align: left;
 }
 </style>
