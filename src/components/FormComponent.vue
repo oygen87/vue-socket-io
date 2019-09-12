@@ -11,7 +11,7 @@ export default {
   props: {
     username: String,
     repo: String,
-    socket: Object,
+    socket: Object
   },
   data: function() {
     return {
@@ -21,9 +21,13 @@ export default {
   methods: {
     handleSubmit: function(e) {
       e.preventDefault();
-      this.socket.emit("clientMessageEvent", {repo: this.repo, message: this.message, username: this.username});
+      this.socket.emit("clientMessageEvent", {
+        repo: this.repo,
+        message: this.message,
+        username: this.username
+      });
       this.message = "";
-    },
+    }
   }
 };
 </script>

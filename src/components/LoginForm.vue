@@ -31,7 +31,7 @@ export default {
         name: "chat",
         params: { username: this.username, repo: this.repo }
       });
-    },
+    }
   }
 };
 </script>

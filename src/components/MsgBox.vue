@@ -1,7 +1,7 @@
 <template>
   <div class="msgbox-container" ref="msgbox">
     <div v-bind:key="msg.id" v-for="msg in messages">
-      <strong>{{ msg.username }} : </strong>
+      <strong>{{ msg.username }} :</strong>
       <span>{{ msg.message }}</span>
     </div>
   </div>
@@ -11,7 +11,7 @@
 export default {
   props: {
     repo: String,
-    socket: Object,
+    socket: Object
   },
   data: function() {
     return {
@@ -33,13 +33,12 @@ export default {
       })
       .catch();
 
-      this.socket.on(`serverMessageEvent:${this.repo}`, data => {
+    this.socket.on(`serverMessageEvent:${this.repo}`, data => {
       this.messages = data;
-
     });
   },
   updated() {
-      this.$refs.msgbox.scrollTop = this.$refs.msgbox.scrollHeight;
+    this.$refs.msgbox.scrollTop = this.$refs.msgbox.scrollHeight;
   }
 };
 </script>
