@@ -33,8 +33,10 @@ export default {
 </script>
 
 <style scoped>
+form {
+  height: 100%;
+}
 input {
-  margin-top: 1rem;
   width: 100%;
 }
 </style>

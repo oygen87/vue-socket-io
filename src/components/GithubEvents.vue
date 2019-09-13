@@ -1,5 +1,5 @@
 <template>
-  <div class="github-events-container text-left">
+  <div class="github-events-container">
     <span v-if="isLoading">loading ...</span>
     <div v-bind:key="e.id" v-for="e in events">
       <span><img :src="e.avatar" /></span><small> {{ e.actor }} {{ e.action }} {{ e.type }}</small>
@@ -44,7 +44,14 @@ export default {
   height: 80vh;
   overflow-y: scroll;
 }
+@media only screen and (max-width: 576px) {
+  .github-events-container {
+        height: 40vh;
+        padding: 1rem;
+    }
+}
 img {
-    max-height:24px;
+    max-height: 24px;
+    border-radius: 50%;
 }
 </style>

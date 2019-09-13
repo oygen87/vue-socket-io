@@ -1,15 +1,26 @@
 <template>
   <div class="chatroom">
-    <h3>{{ repo }}</h3>
-    <div class="row">
-      <div class="col">
-        <MsgBox :socket="this.socket" :repo="this.repo" />
+    <div class="container">
+      <div class="row vh-25">
+        <div class="col mb-2">
+          <span id="title">{{ repo }}</span>
+        </div>
       </div>
-      <div class="col">
-        <GithubEvents :repo="this.repo"/>
+      <div class="row vh-50">
+        <div class="col-sm-6 text-left">
+          <MsgBox :socket="this.socket" :repo="this.repo" />
+        </div>
+        <div class="col-sm-6 text-left">
+          <div class="d-sm-none"><hr/></div>
+          <GithubEvents :repo="this.repo"/>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <FormComponent :username="this.username" :socket="this.socket" :repo="this.repo" />
+        </div>
       </div>
     </div>
-    <FormComponent :username="this.username" :socket="this.socket" :repo="this.repo" />
   </div>
 </template>
 
@@ -39,4 +50,13 @@ export default {
 </script>
 
 <style scoped>
+#title {
+    font-size: 2rem;
+  }
+@media only screen and (max-width: 576px) {
+  #title {
+      font-size: 1rem;
+      padding: 1rem;
+    }
+}
 </style>
