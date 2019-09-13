@@ -1,7 +1,14 @@
 <template>
   <div class="chatroom">
     <h3>{{ repo }}</h3>
-    <MsgBox :socket="this.socket" :repo="this.repo" />
+    <div class="row">
+      <div class="col">
+        <MsgBox :socket="this.socket" :repo="this.repo" />
+      </div>
+      <div class="col">
+        <GithubEvents :repo="this.repo"/>
+      </div>
+    </div>
     <FormComponent :username="this.username" :socket="this.socket" :repo="this.repo" />
   </div>
 </template>
@@ -10,11 +17,13 @@
 import io from "socket.io-client";
 
 import MsgBox from "@/components/MsgBox.vue";
+import GithubEvents from "@/components/GithubEvents.vue";
 import FormComponent from "@/components/FormComponent.vue";
 
 export default {
   components: {
     MsgBox,
+    GithubEvents,
     FormComponent
   },
   props: {
@@ -28,3 +37,6 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+</style>

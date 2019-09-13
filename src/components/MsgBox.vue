@@ -49,6 +49,8 @@ h1 {
 }
 .msgbox-container {
   height: 80vh;
+  width: 50%;
+  display: inline-block;
   overflow-y: scroll;
   text-align: left;
 }
