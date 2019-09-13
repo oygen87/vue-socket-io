@@ -2,7 +2,11 @@
   <div class="github-events-container">
     <span v-if="isLoading">loading ...</span>
     <div v-bind:key="e.id" v-for="e in events">
-      <span><img :src="e.avatar" /></span><small> {{ e.actor }} {{ e.action }} {{ e.type }}</small>
+        <small>{{ dateTime(e.created) }} </small>
+        <a :href="e.url" target="_blank">
+            <span><img :src="e.avatar" /></span>
+            <small class="ml-1"> {{ e.actor }} {{ e.action }} {{ e.type }}</small>
+        </a>
     </div>
   </div>
 </template>
@@ -16,6 +20,17 @@ export default {
         return {
             events: [],
             isLoading: true,
+        }
+    },
+    methods: {
+        dateTime : (date) => {
+            const today = new Date().getTime();
+            const created = new Date(date).getTime();
+            const diff = today - created - 86400000;
+            if (diff <= 0) {
+                return new Date(date).toLocaleTimeString();
+            }
+            return new Date(date).toLocaleDateString();
         }
     },
     mounted() {

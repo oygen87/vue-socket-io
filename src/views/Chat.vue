@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row vh-25">
         <div class="col mb-2">
-          <span id="title">{{ repo }}</span>
+          <a :href="repo" target="_blank"><span id="title">{{ repo }}</span></a>
         </div>
       </div>
       <div class="row vh-50">
@@ -52,6 +52,9 @@ export default {
 <style scoped>
 #title {
     font-size: 2rem;
+  }
+  a {
+    color: black;
   }
 @media only screen and (max-width: 576px) {
   #title {

@@ -1,15 +1,15 @@
 <template>
-  <div class="hello">
+  <div class="container">
     <h1>Github Chat</h1>
     <form @submit="handleSubmit">
-      <div>
+      <div class="form-group">
         <input v-model="username" type="text" placeholder="username" />
       </div>
-      <div>
+      <div class="form-group">
         <input v-model="repo" type="text" placeholder="https://github.com/user/repo" />
       </div>
       <div>
-        <button type="submit">Enter</button>
+        <button class="btn btn-primary" type="submit">Enter</button>
       </div>
     </form>
   </div>
@@ -37,4 +37,7 @@ export default {
 </script>
 
 <style scoped>
+input, button {
+  min-width: 20rem;
+}
 </style>
