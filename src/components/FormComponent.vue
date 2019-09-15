@@ -28,7 +28,10 @@ export default {
       });
       this.message = "";
     }
-  }
+  },
+  beforeDestroy() {
+    this.socket.disconnect();
+  },
 };
 </script>
 

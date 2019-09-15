@@ -39,7 +39,10 @@ export default {
   },
   updated() {
     this.$refs.msgbox.scrollTop = this.$refs.msgbox.scrollHeight;
-  }
+  },
+  beforeDestroy() {
+    this.socket.disconnect();
+  },
 };
 </script>
 
