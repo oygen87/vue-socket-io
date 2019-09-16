@@ -45,11 +45,20 @@ export default {
         }
       })
         .then(res => {
-          res.json().then(events => {
-            this.events = events;
-          });
+          if (res.ok) {
+            res.json().then(events => {
+              this.events = events;
+            });
+          } else {
+            res.text().then(text => {
+              // repo not found
+            });
+          }
         })
-        .catch(() => {})
+        .catch(e => {
+          // request fail
+          console.log("Server Error");
+        })
         .finally(() => {
           this.isLoading = false;
         });
@@ -57,9 +66,12 @@ export default {
   },
   mounted() {
     this.fetchData();
-    this.pollInterval = setInterval(function() {
-      this.fetchData();
-    }.bind(this), 10000);
+    this.pollInterval = setInterval(
+      function() {
+        this.fetchData();
+      }.bind(this),
+      10000
+    );
   },
   beforeDestroy() {
     clearInterval(this.pollInterval);
