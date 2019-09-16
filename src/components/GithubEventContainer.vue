@@ -1,5 +1,5 @@
 <template>
-  <div class="github-events-container">
+  <div class="github-events-container" v-bind:class="{ 'new-events': newEvents }">
     <span v-if="isLoading">loading ...</span>
     <div v-bind:key="e.id" v-for="e in events">
       <GithubEvent :event="e" />
@@ -22,7 +22,7 @@ export default {
       events: [],
       isLoading: true,
       pollInterval: null,
-      newEvents: false, //TODO : implement
+      newEvents: false,
     };
   },
   methods: {
@@ -37,8 +37,9 @@ export default {
         .then(res => {
           if (res.ok) {
             res.json().then(events => {
-              if(JSON.stringify(this.events) !== JSON.stringify(events)){
+              if(this.events.length > 0 && JSON.stringify(this.events) !== JSON.stringify(events)){
                 this.newEvents = true;
+                setTimeout(()=> this.newEvents = false, 2000);
               } else {
                 this.newEvents = false;
               }
@@ -83,10 +84,20 @@ export default {
   height: 80vh;
   overflow-y: scroll;
 }
+.new-events {
+    animation-name: animation-new-events;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+  }
 @media only screen and (max-width: 576px) {
   .github-events-container {
     height: 40vh;
     padding: 1rem;
   }
+}
+@keyframes animation-new-events {
+    0%     {background-color:#FFF !important;}
+    50.0%  {background-color: #d4ffd4;}
+    100.0%  {background-color:#FFF !important;}
 }
 </style>
