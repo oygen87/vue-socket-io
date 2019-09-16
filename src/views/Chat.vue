@@ -8,16 +8,16 @@
       </div>
       <div class="row vh-50">
         <div class="col-sm-6 text-left">
-          <MsgBox :socket="this.socket" :repo="this.repo" />
+          <MsgContainer :socket="this.socket" :repo="this.repo" />
         </div>
         <div class="col-sm-6 text-left">
           <div class="d-sm-none"><hr/></div>
-          <GithubEvents :repo="this.repo"/>
+          <GithubEventContainer :repo="this.repo"/>
         </div>
       </div>
       <div class="row mt-4">
         <div class="col">
-          <FormComponent :username="this.username" :socket="this.socket" :repo="this.repo" />
+          <SendMessage :username="this.username" :socket="this.socket" :repo="this.repo" />
         </div>
       </div>
     </div>
@@ -27,15 +27,15 @@
 <script>
 import io from "socket.io-client";
 
-import MsgBox from "@/components/MsgBox.vue";
-import GithubEvents from "@/components/GithubEvents.vue";
-import FormComponent from "@/components/FormComponent.vue";
+import MsgContainer from "@/components/MsgContainer.vue";
+import GithubEventContainer from "@/components/GithubEventContainer.vue";
+import SendMessage from "@/components/SendMessage.vue";
 
 export default {
   components: {
-    MsgBox,
-    GithubEvents,
-    FormComponent
+    MsgContainer,
+    GithubEventContainer,
+    SendMessage
   },
   props: {
     username: String,

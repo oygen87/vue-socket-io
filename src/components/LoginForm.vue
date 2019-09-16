@@ -9,7 +9,7 @@
         <input v-model="repo" type="text" placeholder="https://github.com/user/repo" />
       </div>
       <div>
-        <button class="btn btn-primary" type="submit">Enter</button>
+        <button :disabled="isValid" class="btn btn-primary" type="submit">Enter</button>
       </div>
     </form>
   </div>
@@ -23,6 +23,11 @@ export default {
       username: "",
       repo: ""
     };
+  },
+  computed: {
+    isValid() {
+      return !(this.username.trim().length > 0 && this.repo.trim().length > 0);
+    }
   },
   methods: {
     handleSubmit: function(e) {
