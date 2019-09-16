@@ -22,7 +22,7 @@ export default {
       events: [],
       isLoading: true,
       pollInterval: null,
-      newEvents: false,
+      newEvents: false
     };
   },
   methods: {
@@ -37,17 +37,22 @@ export default {
         .then(res => {
           if (res.ok) {
             res.json().then(events => {
-              if(this.events.length > 0 && JSON.stringify(this.events) !== JSON.stringify(events)){
+              if (
+                this.events.length > 0 &&
+                JSON.stringify(this.events) !== JSON.stringify(events)
+              ) {
                 this.newEvents = true;
-                setTimeout(()=> this.newEvents = false, 2000);
+                setTimeout(() => (this.newEvents = false), 2000);
               } else {
                 this.newEvents = false;
               }
-              
+
               this.events = events;
             });
           } else {
-            this.navigateTo("home", { error: "Repository is private or not found" });
+            this.navigateTo("home", {
+              error: "Repository is private or not found"
+            });
           }
         })
         .catch(() => {
@@ -59,9 +64,9 @@ export default {
     },
     navigateTo(name, params) {
       this.$router.push({
-            name,
-            params
-          });
+        name,
+        params
+      });
     }
   },
   mounted() {
@@ -70,7 +75,7 @@ export default {
       function() {
         this.fetchData();
       }.bind(this),
-      10000
+      20000
     );
   },
   beforeDestroy() {
@@ -85,10 +90,10 @@ export default {
   overflow-y: scroll;
 }
 .new-events {
-    animation-name: animation-new-events;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-  }
+  animation-name: animation-new-events;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
 @media only screen and (max-width: 576px) {
   .github-events-container {
     height: 40vh;
@@ -96,8 +101,14 @@ export default {
   }
 }
 @keyframes animation-new-events {
-    0%     {background-color:#FFF !important;}
-    50.0%  {background-color: #d4ffd4;}
-    100.0%  {background-color:#FFF !important;}
+  0% {
+    background-color: #fff !important;
+  }
+  50.0% {
+    background-color: #d4ffd4;
+  }
+  100.0% {
+    background-color: #fff !important;
+  }
 }
 </style>
