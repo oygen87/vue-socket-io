@@ -1,14 +1,18 @@
 <template>
   <div class="msgbox-container" ref="msgbox">
     <div v-bind:key="msg.id" v-for="msg in messages">
-      <strong>{{ msg.username }} :</strong>
-      <span>{{ msg.message }}</span>
+      <Msg :username="msg.username" :message="msg.message"/>
     </div>
   </div>
 </template>
 
 <script>
+import Msg from "@/components/Msg";
+
 export default {
+  components: {
+    Msg,
+  },
   props: {
     repo: String,
     socket: Object
