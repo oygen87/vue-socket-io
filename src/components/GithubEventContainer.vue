@@ -21,7 +21,8 @@ export default {
     return {
       events: [],
       isLoading: true,
-      pollInterval: null
+      pollInterval: null,
+      newEvents: false, //TODO : implement
     };
   },
   methods: {
@@ -36,6 +37,12 @@ export default {
         .then(res => {
           if (res.ok) {
             res.json().then(events => {
+              if(JSON.stringify(this.events) !== JSON.stringify(events)){
+                this.newEvents = true;
+              } else {
+                this.newEvents = false;
+              }
+              
               this.events = events;
             });
           } else {
