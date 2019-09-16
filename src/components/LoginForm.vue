@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Github Chat</h1>
+    <h1 class="mt-3">Github Chat</h1>
     <form @submit="handleSubmit">
       <div class="form-group">
         <input v-model="username" type="text" placeholder="username" />

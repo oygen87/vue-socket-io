@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row vh-25">
         <div class="col mb-2">
-          <a :href="repo" target="_blank"><span id="title">{{ repo }}</span></a>
+          <a :href="repo" target="_blank"><span id="title">{{ prettyPrintRepo }}</span></a>
         </div>
       </div>
       <div class="row vh-50">
@@ -45,6 +45,11 @@ export default {
     return {
       socket: io("localhost:4000")
     };
+  },
+  computed: {
+    prettyPrintRepo: function() {
+      return this.repo.split("github.com/")[1];
+    }
   }
 };
 </script>
