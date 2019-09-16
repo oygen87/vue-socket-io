@@ -2,7 +2,7 @@
   <div class="github-events-container">
     <span v-if="isLoading">loading ...</span>
     <div v-bind:key="e.id" v-for="e in events">
-      <GithubEvent :event="e"/>
+      <GithubEvent :event="e" />
     </div>
   </div>
 </template>
@@ -12,7 +12,7 @@ import GithubEvent from "@/components/GithubEvent";
 
 export default {
   components: {
-    GithubEvent,
+    GithubEvent
   },
   props: {
     repo: String
@@ -39,23 +39,21 @@ export default {
               this.events = events;
             });
           } else {
-            res.text().then(text => {
-              this.$router.push({
-              name: "home",
-              params: { error: "Repository not found" }
-              });
-            });
+            this.navigateTo("home", { error: "Repository is private or not found" });
           }
         })
-        .catch(e => {
-          this.$router.push({
-              name: "home",
-              params: { error: "Internal server error" }
-              });
+        .catch(() => {
+          this.navigateTo("home", { error: "Internal server error" });
         })
         .finally(() => {
           this.isLoading = false;
         });
+    },
+    navigateTo(name, params) {
+      this.$router.push({
+            name,
+            params
+          });
     }
   },
   mounted() {
