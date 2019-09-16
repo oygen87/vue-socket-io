@@ -21,11 +21,12 @@ export default {
   data: function() {
     return {
       events: [],
-      isLoading: true
+      isLoading: true,
+      pollInterval: null
     };
   },
   methods: {
-    dateTime: createdDate => {
+    dateTime(createdDate) {
       const MILLISECONDS_1_DAY = 86400000;
       const today = new Date().getTime();
       const created = new Date(createdDate).getTime();
@@ -34,25 +35,34 @@ export default {
         return new Date(createdDate).toLocaleTimeString();
       }
       return new Date(createdDate).toLocaleDateString();
+    },
+    fetchData() {
+      fetch(`http://localhost:4000/github-events/`, {
+        method: "POST",
+        body: JSON.stringify({ repo: this.repo }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(res => {
+          res.json().then(events => {
+            this.events = events;
+          });
+        })
+        .catch(() => {})
+        .finally(() => {
+          this.isLoading = false;
+        });
     }
   },
   mounted() {
-    fetch(`http://localhost:4000/github-events/`, {
-      method: "POST",
-      body: JSON.stringify({ repo: this.repo }),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => {
-        res.json().then(events => {
-          this.events = events;
-          this.isLoading = false;
-        });
-      })
-      .catch(() => {
-        this.isLoading = false;
-      });
+    this.fetchData();
+    this.pollInterval = setInterval(function() {
+      this.fetchData();
+    }.bind(this), 10000);
+  },
+  beforeDestroy() {
+    clearInterval(this.pollInterval);
   }
 };
 </script>
