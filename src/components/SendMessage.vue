@@ -44,7 +44,7 @@ form {
 input {
   width: 100%;
   padding: 1rem;
-  border: 0;
+  border: 0 !important;
 }
 div {
   position: fixed;

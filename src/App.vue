@@ -39,6 +39,8 @@ body.dark span, body.dark strong, body.dark small, body.dark h1 {
 }
 body.dark input[type="text"] {
   background-color: #333;
-  color: #EEE;
+  border-style: solid;
+  border-width: 1px;
+  color: #555;
 }
 </style>
