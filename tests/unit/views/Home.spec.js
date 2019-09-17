@@ -8,4 +8,12 @@ describe("Home.vue", () => {
     const loginFormComponent = wrapper.find(LoginForm);
     expect(loginFormComponent.name()).toBe("LoginForm");
   });
+
+  it("displays error message when props contains error", () => {
+    const wrapper = shallowMount(Home, {
+      propsData: { error: "boo hoo" }
+    });
+    const errorMessage = wrapper.find(".alert-danger");
+    expect(errorMessage.text()).toEqual("boo hoo");
+  });
 });
