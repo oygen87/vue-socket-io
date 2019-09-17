@@ -1,6 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
 import Msg from "@/components/Msg.vue";
-import { isIterable } from "core-js";
 
 describe("Msg.vue", () => {
   it("renders message correctly", () => {
