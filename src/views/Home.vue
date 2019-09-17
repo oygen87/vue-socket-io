@@ -16,7 +16,7 @@ export default {
     LoginForm
   },
   props: {
-    error: String,
+    error: String
   }
 };
 </script>

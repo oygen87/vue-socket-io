@@ -6,7 +6,9 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "vue-cli-service serve",
-    "test": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit",
+    "check": "npx prettier src/*/**.vue --check",
+    "format": "npx prettier src/*/**.vue --write"
   },
   "dependencies": {
     "core-js": "^2.6.5",

@@ -31,7 +31,7 @@ export default {
   },
   beforeDestroy() {
     this.socket.disconnect();
-  },
+  }
 };
 </script>
 

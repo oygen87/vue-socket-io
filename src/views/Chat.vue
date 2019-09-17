@@ -3,7 +3,9 @@
     <div class="container">
       <div class="row vh-25">
         <div class="col mb-2">
-          <a :href="repo" target="_blank"><span id="title">{{ prettyPrintRepo }}</span></a>
+          <a :href="repo" target="_blank"
+            ><span id="title">{{ prettyPrintRepo }}</span></a
+          >
         </div>
       </div>
       <div class="row vh-50">
@@ -11,13 +13,17 @@
           <MsgContainer :socket="this.socket" :repo="this.repo" />
         </div>
         <div class="col-sm-6 text-left">
-          <div class="d-sm-none"><hr/></div>
-          <GithubEventContainer :repo="this.repo"/>
+          <div class="d-sm-none"><hr /></div>
+          <GithubEventContainer :repo="this.repo" />
         </div>
       </div>
       <div class="row mt-4">
         <div class="col">
-          <SendMessage :username="this.username" :socket="this.socket" :repo="this.repo" />
+          <SendMessage
+            :username="this.username"
+            :socket="this.socket"
+            :repo="this.repo"
+          />
         </div>
       </div>
     </div>
@@ -47,7 +53,7 @@ export default {
     };
   },
   computed: {
-    prettyPrintRepo: function() {
+    prettyPrintRepo: function() {
       return this.repo.split("github.com/")[1];
     }
   }
@@ -56,15 +62,15 @@ export default {
 
 <style scoped>
 #title {
-    font-size: 2rem;
-  }
-  a {
-    color: black;
-  }
+  font-size: 2rem;
+}
+a {
+  color: black;
+}
 @media only screen and (max-width: 576px) {
   #title {
-      font-size: 1rem;
-      padding: 1rem;
-    }
+    font-size: 1rem;
+    padding: 1rem;
+  }
 }
 </style>

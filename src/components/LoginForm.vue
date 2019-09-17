@@ -6,10 +6,16 @@
         <input v-model="username" type="text" placeholder="username" />
       </div>
       <div class="form-group">
-        <input v-model="repo" type="text" placeholder="https://github.com/user/repo" />
+        <input
+          v-model="repo"
+          type="text"
+          placeholder="https://github.com/user/repo"
+        />
       </div>
       <div>
-        <button :disabled="isValid" class="btn btn-primary" type="submit">Enter</button>
+        <button :disabled="isValid" class="btn btn-primary" type="submit">
+          Enter
+        </button>
       </div>
     </form>
   </div>
@@ -42,7 +48,8 @@ export default {
 </script>
 
 <style scoped>
-input, button {
+input,
+button {
   min-width: 20rem;
 }
 </style>

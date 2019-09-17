@@ -1,7 +1,7 @@
 <template>
   <div class="msgbox-container" ref="msgbox">
     <div v-bind:key="msg.id" v-for="msg in messages">
-      <Msg :username="msg.username" :message="msg.message"/>
+      <Msg :username="msg.username" :message="msg.message" />
     </div>
   </div>
 </template>
@@ -11,7 +11,7 @@ import Msg from "@/components/Msg";
 
 export default {
   components: {
-    Msg,
+    Msg
   },
   props: {
     repo: String,
@@ -46,7 +46,7 @@ export default {
   },
   beforeDestroy() {
     this.socket.disconnect();
-  },
+  }
 };
 </script>
 
@@ -63,8 +63,8 @@ h1 {
 }
 @media only screen and (max-width: 576px) {
   .msgbox-container {
-        height: 40vh;
-        padding: 1rem;
-    }
+    height: 40vh;
+    padding: 1rem;
+  }
 }
 </style>

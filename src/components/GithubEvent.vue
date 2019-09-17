@@ -5,7 +5,9 @@
       <span>
         <img :src="event.avatar" />
       </span>
-      <small class="ml-1">{{ event.actor }} {{ event.action }} {{ event.type }}</small>
+      <small class="ml-1"
+        >{{ event.actor }} {{ event.action }} {{ event.type }}</small
+      >
     </a>
   </div>
 </template>
@@ -16,7 +18,7 @@ export default {
     event: Object
   },
   methods: {
-      dateTime(createdDate) {
+    dateTime(createdDate) {
       const MILLISECONDS_1_DAY = 86400000;
       const today = new Date().getTime();
       const created = new Date(createdDate).getTime();
@@ -25,7 +27,7 @@ export default {
         return new Date(createdDate).toLocaleTimeString();
       }
       return new Date(createdDate).toLocaleDateString();
-    },
+    }
   }
 };
 </script>
