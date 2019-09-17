@@ -1,7 +1,5 @@
 # vue-socket-io
 
-![badge](https://action-badges.now.sh/oygen87/vue-socket-io)
-
 ## Project setup
 ```
 npm install
