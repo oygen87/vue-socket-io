@@ -8,6 +8,7 @@
 
 <script>
 import Msg from "@/components/Msg";
+import io from "socket.io-client";
 
 export default {
   components: {
@@ -15,11 +16,11 @@ export default {
   },
   props: {
     repo: String,
-    socket: Object
   },
   data: function() {
     return {
-      messages: []
+      messages: [],
+      socket: io("http://localhost:4000")
     };
   },
   mounted() {

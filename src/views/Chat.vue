@@ -10,7 +10,7 @@
       </div>
       <div class="row vh-50">
         <div class="col-sm-6 text-left">
-          <MsgContainer :socket="this.socket" :repo="this.repo" />
+          <MsgContainer :repo="this.repo" />
         </div>
         <div class="col-sm-6 text-left">
           <div class="d-sm-none"><hr /></div>
@@ -21,7 +21,6 @@
         <div class="col">
           <SendMessage
             :username="this.username"
-            :socket="this.socket"
             :repo="this.repo"
           />
         </div>
@@ -31,7 +30,6 @@
 </template>
 
 <script>
-import io from "socket.io-client";
 
 import MsgContainer from "@/components/MsgContainer.vue";
 import GithubEventContainer from "@/components/GithubEventContainer.vue";
@@ -46,11 +44,6 @@ export default {
   props: {
     username: String,
     repo: String
-  },
-  data: function() {
-    return {
-      socket: io("localhost:4000")
-    };
   },
   computed: {
     prettyPrintRepo: function() {

@@ -7,15 +7,17 @@
 </template>
 
 <script>
+import io from "socket.io-client";
+
 export default {
   props: {
     username: String,
     repo: String,
-    socket: Object
   },
   data: function() {
     return {
-      message: ""
+      message: "",
+      socket: io("http://localhost:4000")
     };
   },
   methods: {
