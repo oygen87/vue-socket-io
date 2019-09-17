@@ -52,4 +52,14 @@ input,
 button {
   min-width: 20rem;
 }
+h1 {
+  font-size: 2rem;
+}
+
+@media only screen and (max-width: 576px) {
+  h1 {
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+}
 </style>

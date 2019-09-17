@@ -4,17 +4,18 @@
   "private": true,
   "scripts": {
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "start": "vue-cli-service serve",
     "test": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
     "check": "npx prettier src/*/**.vue --check",
-    "format": "npx prettier src/*/**.vue --write"
+    "format": "npx prettier src/*/**.vue --write",
+    "start": "vue-cli-service serve"
   },
   "dependencies": {
     "core-js": "^2.6.5",
     "socket.io-client": "^2.2.0",
     "vue": "^2.6.10",
-    "vue-router": "^3.0.3"
+    "vue-router": "^3.0.3",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",

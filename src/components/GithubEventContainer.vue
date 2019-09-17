@@ -105,13 +105,13 @@ export default {
 }
 @keyframes animation-new-events {
   0% {
-    background-color: #fff !important;
+    background-color: transparent !important;
   }
   50.0% {
     background-color: #d4ffd4;
   }
   100.0% {
-    background-color: #fff !important;
+    background-color: transparent !important;
   }
 }
 </style>
