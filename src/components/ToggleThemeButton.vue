@@ -1,18 +1,20 @@
 <template>
-  <span @click="handleToggle" >{{ icon() }}</span>
+  <span @click="handleToggle">{{ icon }}</span>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 export default {
-  computed: mapState(["theme"]),
+  computed: {
+    ...mapGetters(["getTheme"]),
+    icon() {
+      return this.getTheme === "light" ? "🕶️" : "🌞";
+    }
+  },
   methods: {
     handleToggle() {
       this.$store.dispatch("toggleTheme");
-    },
-    icon() {
-        return this.theme === "light" ? "🕶️" : "🌞";
-      }
+    }
   }
 };
 </script>

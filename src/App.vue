@@ -41,6 +41,6 @@ body.dark input[type="text"] {
   background-color: #333;
   border-style: solid;
   border-width: 1px;
-  color: #555;
+  color: #CCC;
 }
 </style>
