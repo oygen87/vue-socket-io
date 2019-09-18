@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="github-events-container"
-    v-bind:class="{ 'new-events': newEvents }"
-  >
+  <div class="github-events-container" v-bind:class="{ 'new-events': newEvents }">
     <span v-if="isLoading">loading ...</span>
     <div v-bind:key="e.id" v-for="e in events">
       <GithubEvent :event="e" />
