@@ -43,4 +43,9 @@ body.dark input[type="text"] {
   border-width: 1px;
   color: #CCC;
 }
+@media only screen and (max-width: 576px) {
+  body.dark input[type="text"] {
+  border: 0;
+}
+}
 </style>

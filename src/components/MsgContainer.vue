@@ -15,32 +15,40 @@ export default {
     Msg
   },
   props: {
-    repo: String,
+    repo: String
   },
   data: function() {
     return {
       messages: [],
-      socket: io("http://localhost:4000")
+      socket: null,
     };
   },
-  mounted() {
-    fetch(`http://localhost:4000/messages/`, {
-      method: "POST",
-      body: JSON.stringify({ repo: this.repo }),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => {
-        res.json().then(r => {
-          this.messages = r.data;
-        });
+  methods: {
+    fetchData() {
+      fetch(`http://localhost:4000/messages/`, {
+        method: "POST",
+        body: JSON.stringify({ repo: this.repo }),
+        headers: {
+          "Content-Type": "application/json"
+        }
       })
-      .catch();
-
-    this.socket.on(`serverMessageEvent:${this.repo}`, data => {
+        .then(res => {
+          res.json().then(r => {
+            this.messages = r.data;
+          });
+        })
+        .catch();
+    },
+    setupSocketListener() {
+      this.socket = io("http://localhost:4000")
+      this.socket.on(`serverMessageEvent:${this.repo}`, data => {
       this.messages = data;
     });
+    }
+  },
+  mounted() {
+    this.fetchData();
+    this.setupSocketListener();
   },
   updated() {
     this.$refs.msgbox.scrollTop = this.$refs.msgbox.scrollHeight;
@@ -61,6 +69,7 @@ h1 {
   display: inline-block;
   overflow-y: scroll;
   text-align: left;
+  padding: 2rem;
 }
 @media only screen and (max-width: 576px) {
   .msgbox-container {

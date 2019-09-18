@@ -91,6 +91,7 @@ export default {
 .github-events-container {
   height: 80vh;
   overflow-y: scroll;
+  padding: 2rem;
 }
 .new-events {
   animation-name: animation-new-events;
