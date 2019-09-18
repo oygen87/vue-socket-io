@@ -20,7 +20,7 @@ export default {
   data: function() {
     return {
       messages: [],
-      socket: null,
+      socket: null
     };
   },
   methods: {
@@ -40,10 +40,10 @@ export default {
         .catch();
     },
     setupSocketListener() {
-      this.socket = io("http://localhost:4000")
+      this.socket = io("http://localhost:4000");
       this.socket.on(`serverMessageEvent:${this.repo}`, data => {
-      this.messages = data;
-    });
+        this.messages = data;
+      });
     }
   },
   mounted() {

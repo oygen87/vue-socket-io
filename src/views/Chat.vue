@@ -20,10 +20,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <SendMessage
-            :username="this.username"
-            :repo="this.repo"
-          />
+          <SendMessage :username="this.username" :repo="this.repo" />
         </div>
       </div>
     </div>
@@ -31,7 +28,6 @@
 </template>
 
 <script>
-
 import MsgContainer from "@/components/MsgContainer.vue";
 import GithubEventContainer from "@/components/GithubEventContainer.vue";
 import SendMessage from "@/components/SendMessage.vue";

@@ -12,7 +12,7 @@ import io from "socket.io-client";
 export default {
   props: {
     username: String,
-    repo: String,
+    repo: String
   },
   data: function() {
     return {
@@ -49,7 +49,7 @@ input {
 div {
   position: fixed;
   bottom: 0;
-  left:0;
+  left: 0;
   width: 100%;
 }
 </style>

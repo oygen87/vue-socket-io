@@ -20,7 +20,10 @@ export default {
   methods: {
     dateTime(createdDate, todayDate) {
       const MILLISECONDS_1_DAY = 86400000;
-      const today = typeof todayDate !== "undefined" ? new Date(todayDate).getTime() : new Date().getTime();
+      const today =
+        typeof todayDate !== "undefined"
+          ? new Date(todayDate).getTime()
+          : new Date().getTime();
       const created = new Date(createdDate).getTime();
       const diff = today - created - MILLISECONDS_1_DAY;
       if (diff <= 0) {
