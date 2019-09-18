@@ -11,7 +11,7 @@ export default {
       this.$store.dispatch("toggleTheme");
     },
     icon() {
-        return this.theme === "light" ? "🕶️" : "💡";
+        return this.theme === "light" ? "🕶️" : "🌞";
       }
   }
 };
