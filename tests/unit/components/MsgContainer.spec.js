@@ -14,8 +14,4 @@ describe("MsgContainer.vue", () => {
     expect(methods.fetchData).toHaveBeenCalledTimes(1);
     expect(methods.setupSocketListener).toHaveBeenCalledTimes(1);
   });
-
-  afterAll(async done => {
-    done();
-  });
 });
