@@ -69,12 +69,12 @@ h1 {
   display: inline-block;
   overflow-y: scroll;
   text-align: left;
-  padding: 2rem;
+  margin-top: 2rem;
 }
 @media only screen and (max-width: 576px) {
   .msgbox-container {
     height: 40vh;
-    padding: 1rem;
+    margin-top: 1rem;
   }
 }
 </style>

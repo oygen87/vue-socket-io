@@ -91,7 +91,7 @@ export default {
 .github-events-container {
   height: 80vh;
   overflow-y: scroll;
-  padding: 2rem;
+  margin-top: 2rem;
 }
 .new-events {
   animation-name: animation-new-events;
@@ -101,7 +101,7 @@ export default {
 @media only screen and (max-width: 576px) {
   .github-events-container {
     height: 40vh;
-    padding: 1rem;
+    margin-top: 1rem;
   }
 }
 @keyframes animation-new-events {
