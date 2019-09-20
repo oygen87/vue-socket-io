@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     fetchData() {
-      fetch(`http://localhost:4000/messages/`, {
+      fetch(`${process.env.VUE_APP_URL}/messages/`, {
         method: "POST",
         body: JSON.stringify({ repo: this.repo }),
         headers: {
@@ -40,7 +40,7 @@ export default {
         .catch();
     },
     setupSocketListener() {
-      this.socket = io("http://localhost:4000");
+      this.socket = io(`${process.env.VUE_APP_URL}`);
       this.socket.on(`serverMessageEvent:${this.repo}`, data => {
         this.messages = data;
       });

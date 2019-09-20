@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     fetchData() {
-      fetch(`http://localhost:4000/github-events/`, {
+      fetch(`${process.env.VUE_APP_URL}/github-events/`, {
         method: "POST",
         body: JSON.stringify({ repo: this.repo }),
         headers: {

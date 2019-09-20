@@ -17,7 +17,7 @@ export default {
   data: function() {
     return {
       message: "",
-      socket: io("http://localhost:4000")
+      socket: io(`${process.env.VUE_APP_URL}`)
     };
   },
   methods: {
