@@ -10,17 +10,17 @@ describe("Home.vue", () => {
     expect(loginFormComponent.name()).toBe("LoginForm");
   });
 
+  it("renders GithubFooter", () => {
+    const wrapper = shallowMount(Home);
+    const footer = wrapper.find(GithubFooter);
+    expect(footer.name()).toEqual("GithubFooter");
+  });
+
   it("displays error message when props contains error", () => {
     const wrapper = shallowMount(Home, {
       propsData: { error: "boo hoo" }
     });
     const errorMessage = wrapper.find(".alert-danger");
     expect(errorMessage.text()).toEqual("boo hoo");
-  });
-
-  it("renders GithubFooter", () => {
-    const wrapper = shallowMount(Home);
-    const footer = wrapper.find(GithubFooter);
-    expect(footer.name()).toEqual("GithubFooter");
   });
 });
