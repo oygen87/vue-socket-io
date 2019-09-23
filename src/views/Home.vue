@@ -5,6 +5,7 @@
         <div class="col">
           <ToggleThemeButton />
           <LoginForm />
+          <GithubFooter />
         </div>
       </div>
       <div class="row">
@@ -21,12 +22,14 @@
 <script>
 import LoginForm from "@/components/LoginForm.vue";
 import ToggleThemeButton from "@/components/ToggleThemeButton.vue";
+import GithubFooter from "@/components/GithubFooter";
 
 export default {
   name: "home",
   components: {
     LoginForm,
-    ToggleThemeButton
+    ToggleThemeButton,
+    GithubFooter
   },
   props: {
     error: String
