@@ -26,6 +26,11 @@ npm run build
 npm run test
 ```
 
+### Run E2E tests
+```
+npm run e2e
+```
+
 ### Lints and fixes files
 ```
 npm run lint
