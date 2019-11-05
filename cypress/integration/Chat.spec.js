@@ -14,12 +14,11 @@ describe("The Chat Page", function() {
 
   it("posts message", function() {
     const sample = new Date().toISOString();
-
     cy.get('input[type="text"]').type(`${sample}{enter}`);
     cy.get('input[type="text"]').should("have.text", "");
-    cy.wait(3000);
+    cy.wait(5000);
     cy.get(".msgbox-container div div")
-      .eq(-1)
+      .last()
       .find("span")
       .should("have.text", sample);
   });
