@@ -13,14 +13,14 @@ describe("The Home Page", function() {
   });
 
   it("Submit Button is disabled by default", function() {
-    cy.get('button[type="submit"][disabled]')
+    cy.get('button[type="submit"][disabled]');
     cy.get('input[placeholder="username"]').type("foo");
     cy.get('input[placeholder="https://github.com/user/repo"]').type("bar");
     cy.get('button[type="submit"]').click();
   });
 
   it("Shows error message when repo is private or not found", function() {
-    cy.get('button[type="submit"][disabled]')
+    cy.get('button[type="submit"][disabled]');
     cy.get('input[placeholder="username"]').type("foo");
     cy.get('input[placeholder="https://github.com/user/repo"]').type("bar");
     cy.get('button[type="submit"]').click();
