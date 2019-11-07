@@ -27,6 +27,9 @@ npm run test
 ```
 
 ### Run E2E tests
+
+Start backend express server and then 
+
 ```
 npm run e2e
 ```
